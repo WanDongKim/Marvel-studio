@@ -1,0 +1,55 @@
+.Movie-list {
+    max-width: 1300px;
+    margin: 7rem auto;
+    text-align: center;
+    .Movie__Card {
+
+        width: 480px;
+        height: 275px;
+        margin: 20px;
+        display: inline-flex;
+        position: relative;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        .Movie__Column{
+            position: relative;
+        }
+        .Movie__Poster {
+            width: 185px;
+            height: 278px;
+            outline: none;
+            border: 0;
+        }
+        .Movie__Title {
+            font-size: $m-size;
+            font-weight: bold;
+            margin: 10px;
+            text-align: left;        
+        }
+        .Movie__ReleaseDate {
+            font-size: $s-size;
+            font-style: italic;
+            margin: 10px;
+            text-align: left;   
+        }
+        .Movie__Overview{
+            text-align: left;   
+            margin: 40px 10px 10px 10px;
+        }
+        .Movie__View-more {
+            border-top: 1px solid #e3e3e3;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 16px 0px;
+            display: block;
+            width: 100%;
+            margin: 0;
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+        }
+
+    }
+}
+

@@ -1,0 +1,37 @@
+.header_container {
+    display: inline-block;
+    position: fixed;
+    height: 63px;
+    width: 100%;
+    background: #1B242F;
+    top:0;
+    // border-bottom: 3px solid $mari-gold;
+    z-index: 50;
+    @media (max-width: 450px){
+        display: none;
+    }
+    .link-wrap {
+        overflow: visible;
+        text-align: left;
+        margin: 20px; 
+        .page-link {
+            margin: 0 20px;
+            display: inline;
+            cursor: pointer;
+            text-transform: uppercase;
+            color: white;
+            background: none;
+            border: none;
+            a {
+                color: white;
+                transition: color .5s;
+
+                &:hover {
+                    // color: $living-coral;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
