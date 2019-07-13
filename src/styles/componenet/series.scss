@@ -1,8 +1,8 @@
-.Movie-list {
+.Series-list {
     max-width: 1300px;
     margin: 10rem auto;
     text-align: center;
-    .Movie__Card {
+    .Series__Card {
 
         width: 480px;
         height: 275px;
@@ -10,32 +10,32 @@
         display: inline-flex;
         position: relative;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-        .Movie__Column{
+        .Series__Column{
             position: relative;
         }
-        .Movie__Poster {
+        .Series__Poster {
             width: 185px;
             height: 278px;
             outline: none;
             border: 0;
         }
-        .Movie__Title {
+        .Series__Title {
             font-size: $m-size;
             font-weight: bold;
             margin: 10px;
             text-align: left;        
         }
-        .Movie__ReleaseDate {
+        .Series__ReleaseDate {
             font-size: $s-size;
             font-style: italic;
             margin: 10px;
             text-align: left;   
         }
-        .Movie__Overview{
+        .Series__Overview{
             text-align: left;   
             margin: 40px 10px 10px 10px;
         }
-        .Movie__View-more {
+        .Series__View-more {
             border-top: 1px solid #e3e3e3;
             position: absolute;
             bottom: 0;

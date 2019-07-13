@@ -1,19 +1,21 @@
 .header_container {
     display: inline-block;
     position: fixed;
-    height: 63px;
+    height: 150px;
     width: 100%;
     background: #1B242F;
     top:0;
-    // border-bottom: 3px solid $mari-gold;
     z-index: 50;
     @media (max-width: 450px){
         display: none;
     }
     .link-wrap {
         overflow: visible;
-        text-align: left;
+        text-align: center;
         margin: 20px; 
+        .page-logo {
+            margin-bottom: 2rem;
+        }
         .page-link {
             margin: 0 20px;
             display: inline;
@@ -25,9 +27,10 @@
             a {
                 color: white;
                 transition: color .5s;
+                text-decoration: none;
 
                 &:hover {
-                    // color: $living-coral;
+                    color: white;
                     text-decoration: none;
                 }
             }
@@ -35,3 +38,10 @@
     }
 }
 
+.footer_container {
+    background-color: #1B242F;
+    color: white;
+    position: relative;
+    padding: 70px 0 50px 0;
+    text-align: center;
+}

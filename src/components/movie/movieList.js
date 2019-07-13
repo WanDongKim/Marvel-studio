@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Movie from "./movie";
-
+import LoadingBar from '../base/loading_bar';
 class MovieList extends Component {
   state = {
     movies: [],
@@ -25,6 +25,7 @@ class MovieList extends Component {
       return undefined;
     })
     return movies;
+
   }
 
   _getMovies = async () => {
@@ -45,12 +46,14 @@ class MovieList extends Component {
 
   render() {
     const { movies } =this.state;
+    console.log(movies);
     return (
       <div className="Movie-list">
-        {movies ? this._renderMovies() : "Loading"}
+        {movies ? this._renderMovies() : <LoadingBar  type='cylon' color='#111111' />}
       </div>
     );
   }
 }
 
 export default MovieList;
+
