@@ -16,11 +16,12 @@ class MovieList extends Component {
       if(movie.media_type ==='movie'){
         return <Movie
         key={movie.id}
+        id={movie.id}
         title={movie.title}
         release_date={movie.release_date}
         vote_average={movie.vote_average}
         overview={movie.overview}
-        poster = {`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
+        poster = {`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
       }
       return undefined;
     })
@@ -46,7 +47,6 @@ class MovieList extends Component {
 
   render() {
     const { movies } =this.state;
-    console.log(movies);
     return (
       <div className="Movie-list">
         {movies ? this._renderMovies() : <LoadingBar  type='cylon' color='#111111' />}

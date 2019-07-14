@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom";
 import Image_logo from '../../assets/images/Marvel_Studios_2016_logo.png';
 function Header(){
     return(

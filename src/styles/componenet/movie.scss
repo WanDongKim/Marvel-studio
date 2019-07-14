@@ -53,3 +53,61 @@
     }
 }
 
+.Movie__Details {
+    margin: 9rem 0;
+
+    .Detail__bg-card {
+        background-color: rgba(37, 42, 61,.9);
+        display: inline-flex;
+        width:100%;
+        position: relative;
+        color: white;
+        .Detail__Column {
+            position: relative;
+        }
+        .Detail__Poster {
+            width: 300px;
+            height: 450px;
+            outline: none;
+            border: 0;
+            padding: 5rem 5rem 5rem 15rem;
+        }
+        .Detail__Info {
+            padding: 5rem 0;
+            margin-right: 10rem;
+            font-size: $m-size;
+            .Detail__Title {
+                font-size: $xl-size;
+                margin: 0;
+                font-weight: bold;
+            }
+            .Genre__Badge {
+                border: .5px solid white;
+                background-color: white;
+                padding: 5px;
+                border-radius: 5px;
+                color: black;
+                margin-right: 1rem;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                cursor: default;
+            }
+            .Detail__Overview {
+                margin: 4rem 0;
+                .Overview__Title{
+                    font-size: $l-size;
+                    font-weight: bold;
+                }
+                p {
+                    font-size: $m-size;
+                }
+            }
+        }
+    }
+    .Detail__Cast {
+        margin: 5rem 5rem 5rem 15rem;
+        .Detail__Title{
+            font-size: $l-size;
+            font-weight: bold;
+        }
+    }
+}

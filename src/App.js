@@ -8,6 +8,7 @@ import MovieList from './components/movie/movieList';
 
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 import SeriesList from './components/series/seriesList';
+import Movie_Detail from './components/movie/movie_details';
 
 class App extends Component {
 
@@ -19,6 +20,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/movie" component={MovieList} />
           <Route exact path="/series" component={SeriesList} />
+          <Route path="/movie/:id" component={Movie_Detail} />
         <Footer />
       </div>
       </Router>
