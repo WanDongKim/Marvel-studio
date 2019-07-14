@@ -1,6 +1,6 @@
 .Movie-list {
     max-width: 1300px;
-    margin: 10rem auto;
+    margin: 10rem auto 0 auto;
     text-align: center;
     .Movie__Card {
 
@@ -54,7 +54,7 @@
 }
 
 .Movie__Details {
-    margin: 9rem 0;
+    margin-top: 9rem;
 
     .Detail__bg-card {
         background-color: rgba(37, 42, 61,.9);
@@ -103,11 +103,38 @@
             }
         }
     }
-    .Detail__Cast {
-        margin: 5rem 5rem 5rem 15rem;
-        .Detail__Title{
-            font-size: $l-size;
-            font-weight: bold;
-        }
+    .row{
+        display: flex;
+        width: 100%;
+        .Detail__Column {
+            display: inline-flex;
+
+            &.left {
+                width: 75%;
+                .Detail__Cast {
+                    margin: 5rem 5rem 5rem 15rem;
+                    .Detail__Title{
+                        font-size: $l-size;
+                        font-weight: bold;
+                    }
+                }
+            }
+            &.right {
+                padding: 5rem 0;
+                background-color: #f1f0f1;
+                width: 25%;
+                font-size: $m-size;
+                .Fact__Container {
+                    margin-left: 3rem;
+                    .Fact__Title{
+                        font-weight: bold;
+                    }
+                    .Fact__Context{
+                        margin-left: 1rem;
+                    }
+                }
+            }
+        }   
     }
+    
 }

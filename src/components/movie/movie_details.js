@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import CastList from '../cast/cast_list';
 // import LoadingBar from '../base/loading_bar';
 class Movie_Detail extends Component {
     state = {
@@ -25,8 +26,7 @@ class Movie_Detail extends Component {
         })
         .catch(err => console.log(err));
     }
-    //                 <p>genres</p>
-//                 <h1>list - genres => id, name</h1>
+
     _getGenres = () => {
         if(!!this.state.movie.genres ){
             const genres = this.state.movie.genres.map((genre) => {
@@ -36,7 +36,22 @@ class Movie_Detail extends Component {
             });
             return genres;
         }
-
+    }
+    //                 <p>production_companies</p>
+//                 <h1>list - production_companies => id, logo_path, name, origin_country</h1>
+    _getCompanies = () => {
+        if(!!this.state.movie.production_companies ){
+            const companies = this.state.movie.production_companies.map((company) => {
+                const path = `https://image.tmdb.org/t/p/w300${company.logo_path}`
+                return (
+                    <p className="" key={company.id}>
+                        <img className="" src={path} alt={company.name}/>
+                        {company.name}
+                    </p>
+                )
+            });
+            return companies;
+        }
     }
     render(){
         const { movie } = this.state;
@@ -70,10 +85,40 @@ class Movie_Detail extends Component {
                         </div>
                     </div>
                 </div>
-            
-                <div className="Detail__Cast">
-                    <p className="Detail__Title">Top Billed Cast</p>
-                </div>
+                    <div className="row">
+                        <div className="Detail__Column left">
+                            <div className="Detail__Cast">
+                                <p className="Detail__Title">Top Billed Cast</p>
+                                <CastList movie_id={this.state.movie_id} />
+                            </div>
+                        </div> 
+
+                        <div className="Detail__Column right">
+                            <div className="Fact__Container">
+                                Homepage {movie.homepage}
+                                <p className="Fact__Title">Status</p>
+                                <p className="Fact__Context">{movie.status}</p>
+                                <p className="Fact__Title">Budget</p>
+                                <p className="Fact__Context">$ {movie.budget}</p>
+                                <p className="Fact__Title">Original Language</p>
+                                <p className="Fact__Context">{movie.original_language}</p>
+                                <p className="Fact__Title">revenue</p>
+                                <p className="Fact__Context">$ {movie.revenue}</p>
+                                <p className="Fact__Title">Run time</p>
+                                <p className="Fact__Context">{movie.runtime}</p>
+                                <p className="Fact__Title">vote_average</p>
+                                <p className="Fact__Context">{movie.vote_average}</p>
+                                <p className="Fact__Title">popularity</p>
+                                <p className="Fact__Context">{movie.popularity}</p>
+                                <p className="Fact__Context">{movie.vote_average}</p>
+                                <p className="Fact__Title">Company</p>
+                                <p className="Fact__Context">{this._getCompanies()}</p>
+                                
+                            </div>
+
+                        </div>
+                    </div>
+
             </div>
         )
     }
@@ -82,36 +127,13 @@ class Movie_Detail extends Component {
 
 export default Movie_Detail;
 
-// {movie ? this._renderMovies() : <LoadingBar type='cylon' color='#111111'  />}
 
-//                 <p>original title</p>
-//                 <h1>{movie.original_title}</h1>
-//                 <p>Image backdrop</p>
-//                 <img src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} />
-//                 <p>budget</p>
-//                 <h1>{movie.budget}</h1>
+//              
 //                 <p>genres</p>
 //                 <h1>list - genres => id, name</h1>
-//                 <p>homepage</p>
-//                 <h1>{movie.homepage}</h1>
 
-//                 <p>original_language</p>
-//                 <h1>{movie.original_language}</h1>
-//                 <p>overview</p>
-//                 <h1>{movie.overview}</h1>
-//                 <p>poster_path</p>
-//                 <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
-//                 <p>production_companies</p>
-//                 <h1>list - production_companies => id, logo_path, name, origin_country</h1>
 
-//                 <p>release_date</p>
-//                 <h1>{movie.release_date}</h1>
-//                 <p>revenue</p>
-//                 <h1>{movie.revenue}</h1>
-//                 <p>runtime</p>
-//                 <h1>{movie.runtime}</h1>
-//                 <p>status</p>
-//                 <h1>{movie.status}</h1>
+
 //                 <p>vote_average</p>
 //                 <h1>{movie.vote_average}</h1>
 //                 <p>status</p>

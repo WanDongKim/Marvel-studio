@@ -1,0 +1,19 @@
+.Cast__Top10 {
+    max-width: 850px;
+    .Cast__Card {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        display: inline-block;
+        overflow: hidden;
+        margin: 5px;
+        width: 138px;
+        height: 300px;
+        .Cast__Name {
+            font-size: $m-size;
+            font-weight: bold;
+            margin-left: 4px;
+        }
+        .Cast__Character {
+            margin-left: 4px;
+        }
+    }
+}

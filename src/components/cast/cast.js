@@ -1,21 +1,29 @@
 import React from 'react';
 
-function Cast({}){
+function Cast({profile, character, name}){
     return( 
         <div className="Cast__Card">
-
+            <CastImage profile={profile} alt={name} />
+            <p className="Cast__Name">{name}</p>
+            <p className="Cast__Character">{character }</p>
         </div>
     );
 }
 
-function MoviePoster({poster, alt}){
+function CastImage({profile, alt}){
     return (
-        <img src={poster} alt={alt} title={alt} className="Movie__Poster" />
+        <img src={profile} alt={alt} title={alt} className="" />
     )
 }
-function VoteAverage({vote_average}){
-    return (
-        <CircularProgressbar className="Movie__VoteBar" value={vote_average} maxValue={10}  text={vote_average} />
-    )
-}
+
 export default Cast;
+
+// cast_id: 137
+// character: "Peter Parker / Spider-Man"
+
+// gender: 2
+// id: 1136406
+// name: "Tom Holland"
+// order: 0
+// profile_path: "/2qhIDp44cAqP2clOgt2afQI07X8.jpg"
+
