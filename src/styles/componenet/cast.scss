@@ -17,3 +17,43 @@
         }
     }
 }
+.Cast__Full_Container{
+    margin: 9rem auto 0 auto;
+
+    .Cast__Simple{
+        max-width: 1400px;
+        display: flex;
+        margin: 0 auto;
+        .Cast__Simple__Column{
+            max-width: 650px;
+            margin: 0 auto;
+            .Simple__Title{
+                font-size: $l-size;
+                font-weight: bold;
+            }
+        }
+        .Cast__Card__simple {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: inline-flex;
+            overflow: hidden;
+            margin: 5px;
+            width: 300px;
+            height: 175px;
+    
+            .Cast__Name {
+                font-size: $m-size;
+                font-weight: bold;
+                margin-left: 4px;
+                display: inline-flex;
+    
+            }
+            .Cast__Character {
+                margin-left: 4px;
+                display: flex;
+    
+            }
+        
+        }
+    }
+    
+}

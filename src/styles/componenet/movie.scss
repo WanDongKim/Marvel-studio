@@ -117,6 +117,15 @@
                         font-size: $l-size;
                         font-weight: bold;
                     }
+                    .Detail__CastLink{
+                        font-size: $m-size;
+                        a {
+                            text-decoration: none;
+                            &:focus {
+                                color: inherit;
+                            }
+                        }
+                    }
                 }
             }
             &.right {
@@ -137,4 +146,28 @@
         }   
     }
     
+}
+
+.Movie__Simple{
+    background-color: rgba(37, 42, 61,.9);
+    padding: 3rem 0;
+    width: 100%;
+    display: flex;
+    .Movie__Simple__Poster {
+        margin: 0 2rem 0 5rem;
+    }
+    .Movie__Simple__Detail{
+        .MovieSimple__Title {
+            font-size: $xl-size;
+            color: white;
+            margin: 2rem 0 1rem 0;
+        }
+        .MovieSimple__Goback{
+            color: white;
+            font-size: $m-size;
+            cursor: pointer;
+            display: inline;
+        }
+    }
+
 }

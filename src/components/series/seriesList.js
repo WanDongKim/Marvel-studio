@@ -17,6 +17,7 @@ class SeriesList extends Component {
       if(series.media_type ==='tv'){
         return <Series
         key={series.id}
+        id={series.id}
         title={series.name}
         release_date={series.first_air_date}
         vote_average={series.vote_average}

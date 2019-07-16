@@ -2,8 +2,9 @@ import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis'
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-function Series({title, release_date, overview, vote_average, poster}){
+function Series({id, title, release_date, overview, vote_average, poster}){
     return( 
         <div className="Series__Card">
             <div className="Series__Column">
@@ -20,7 +21,9 @@ function Series({title, release_date, overview, vote_average, poster}){
                 trimRight
                 basedOn='letters'/>
                 <p className="Series__View-more">
-                    <a href="./"> View more</a>
+                    <Link to= {{pathname: `/series/${id}`, component: './series_detail.js'}}>
+                        View more
+                    </Link>
                 </p>
             </div>
         </div>

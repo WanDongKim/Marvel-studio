@@ -1,11 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import CastList from '../cast/cast_list';
+import MovieFact from './movie_fact';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
 // import LoadingBar from '../base/loading_bar';
 class Movie_Detail extends Component {
     state = {
         movie_id: this.props.match.params.id,
         movie: []
-    }
+    };
 
     componentDidMount() {
         this._getMovies();
@@ -14,7 +17,7 @@ class Movie_Detail extends Component {
     _getMovies = async () => {
         const result = await this._callApi(this.state.movie_id);
         this.setState({
-            movie: result
+            movie: result,
         });
     }
     
@@ -32,29 +35,15 @@ class Movie_Detail extends Component {
             const genres = this.state.movie.genres.map((genre) => {
                 return (
                     <span className="Genre__Badge" key={genre.id}>{genre.name} </span>
-                )
+                );
             });
             return genres;
         }
     }
-    //                 <p>production_companies</p>
-//                 <h1>list - production_companies => id, logo_path, name, origin_country</h1>
-    _getCompanies = () => {
-        if(!!this.state.movie.production_companies ){
-            const companies = this.state.movie.production_companies.map((company) => {
-                const path = `https://image.tmdb.org/t/p/w300${company.logo_path}`
-                return (
-                    <p className="" key={company.id}>
-                        <img className="" src={path} alt={company.name}/>
-                        {company.name}
-                    </p>
-                )
-            });
-            return companies;
-        }
-    }
+
     render(){
-        const { movie } = this.state;
+        const { movie, movie_id } = this.state;
+        const id = movie_id;
         const back = {
             backgroundImage: `url("https://image.tmdb.org/t/p/w1400_and_h450_face${movie.backdrop_path}")`,
             backgroundSize: 'cover',
@@ -64,7 +53,7 @@ class Movie_Detail extends Component {
             position: 'absolute',
             height: '100%',
             zIndex: '-1'
-        }
+        };
         return(
             <div className="Movie__Details" >
                 <div className="Detail__bg-card" >
@@ -84,43 +73,31 @@ class Movie_Detail extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
-                    <div className="row">
+                </div>       
+                <div className="row">
                         <div className="Detail__Column left">
                             <div className="Detail__Cast">
                                 <p className="Detail__Title">Top Billed Cast</p>
                                 <CastList movie_id={this.state.movie_id} />
+                                <p className="Detail__CastLink"><i><Link to={{pathname: `/movie/${id}/full-cast`, component: '../cast/full-cast_list.js'}}>View Full Cast & Crew</Link></i></p>
                             </div>
                         </div> 
 
                         <div className="Detail__Column right">
-                            <div className="Fact__Container">
-                                Homepage {movie.homepage}
-                                <p className="Fact__Title">Status</p>
-                                <p className="Fact__Context">{movie.status}</p>
-                                <p className="Fact__Title">Budget</p>
-                                <p className="Fact__Context">$ {movie.budget}</p>
-                                <p className="Fact__Title">Original Language</p>
-                                <p className="Fact__Context">{movie.original_language}</p>
-                                <p className="Fact__Title">revenue</p>
-                                <p className="Fact__Context">$ {movie.revenue}</p>
-                                <p className="Fact__Title">Run time</p>
-                                <p className="Fact__Context">{movie.runtime}</p>
-                                <p className="Fact__Title">vote_average</p>
-                                <p className="Fact__Context">{movie.vote_average}</p>
-                                <p className="Fact__Title">popularity</p>
-                                <p className="Fact__Context">{movie.popularity}</p>
-                                <p className="Fact__Context">{movie.vote_average}</p>
-                                <p className="Fact__Title">Company</p>
-                                <p className="Fact__Context">{this._getCompanies()}</p>
-                                
-                            </div>
-
+                            <MovieFact 
+                                homepage={movie.homepage}
+                                status={movie.status}
+                                budget={movie.budget}
+                                language={movie.original_language}
+                                revenue={movie.revenue}
+                                runtime={movie.runtime}
+                                vote_avg={movie.vote_average}
+                                popularity={movie.popularity}  />
                         </div>
                     </div>
 
             </div>
-        )
+        );
     }
 }
 
@@ -128,15 +105,3 @@ class Movie_Detail extends Component {
 export default Movie_Detail;
 
 
-//              
-//                 <p>genres</p>
-//                 <h1>list - genres => id, name</h1>
-
-
-
-//                 <p>vote_average</p>
-//                 <h1>{movie.vote_average}</h1>
-//                 <p>status</p>
-//                 <h1>{movie.status}</h1>
-//                 <p>popularity</p>
-//                 <h1>{movie.popularity}</h1>
