@@ -137,11 +137,10 @@
                     }
                     .Related__Carousel{
                         display: flex;
-                        overflow-x: scroll;
                         .Movie__Card {
 
                             width: 250px;
-                            margin: 20px;
+                            margin: 5px;
                             display: block;
                             box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
                             .Movie__Column{

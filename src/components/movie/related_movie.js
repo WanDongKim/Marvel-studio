@@ -15,15 +15,18 @@ class RelatedMovies extends Component{
         this._getMovies();
     }
     _renderMovies = () => {
-        const movies = this.state.movies.map((movie) => {
-            return <Movie
-            key={movie.id}
-            id={movie.id}
-            title={movie.title}
-            release_date={movie.release_date}
-            vote_average={movie.vote_average}
-            overview={movie.overview}
-            poster = {`https://image.tmdb.org/t/p/w250_and_h141_face/${movie.backdrop_path}`} />
+        const movies = this.state.movies.map((movie, index) => {
+            if(index <3){
+                return <Movie
+                key={movie.id}
+                id={movie.id}
+                title={movie.title}
+                release_date={movie.release_date}
+                vote_average={movie.vote_average}
+                overview={movie.overview}
+                poster = {`https://image.tmdb.org/t/p/w250_and_h141_face/${movie.backdrop_path}`} />
+            }
+
         })
         return movies;
     }
