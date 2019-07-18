@@ -111,6 +111,7 @@
 
             &.left {
                 width: 75%;
+                display: block;
                 .Detail__Cast {
                     margin: 5rem 5rem 5rem 15rem;
                     .Detail__Title{
@@ -126,6 +127,70 @@
                             }
                         }
                     }
+                }
+                .Detail__Season {
+                    margin: 5rem 5rem 5rem 15rem;
+                    .Detail__Title{
+                        font-size: $l-size;
+                        font-weight: bold;
+                    }
+                    .Detail__SeasonLink{
+                        font-size: $m-size;
+                        a {
+                            text-decoration: none;
+                            &:focus {
+                                color: inherit;
+                            }
+                        }
+                    }
+                }
+                .Detail__RelatedSeries{
+                    margin: 5rem 5rem 5rem 15rem;
+                    .Detail__Title{
+                        font-size: $l-size;
+                        font-weight: bold;
+                    }
+                    .Related__Carousel{
+                        display: flex;
+                        overflow-x: scroll;
+                        .Series__Card {
+    
+                            width: 250px;
+                            margin: 20px;
+                            display: block;
+                            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+                            .Series__Column{
+                                position: relative;
+                            }
+                            .Series__Poster {
+                                width: 250px;
+                                height: 171px;
+                                outline: none;
+                                border: 0;
+                            }
+                            .Series__Title {
+                                font-size: $m-size;
+                                font-weight: bold;
+                                margin: 10px;
+                                text-align: center;        
+                            }
+                            .Series__ReleaseDate {
+                                display: none;
+                            }
+                            .Series__Overview{
+                                display: none;
+                            }
+                            .Series__View-more {
+                                display: none;
+    
+                            }
+                        }
+                    }
+                    
+                }
+                hr {
+                    margin: 5rem 0;
+                    width: 100%;
                 }
             }
             &.right {

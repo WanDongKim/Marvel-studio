@@ -10,17 +10,14 @@ class FullCastList extends Component {
     state ={
         id: this.props.match.params.id,
         tv_last_season: this.props.match.params.season,
-        casts: [],
-        crews: [],
+        casts: '',
+        crews: '',
     }
     componentDidMount() {
-        console.log(this.props)
         this._getCastList();
     }
 
     _renderCastList = () => {
-        console.log(this.state.casts)
-
             const casts = this.state.casts.map((cast, index) => {
                 const profile_pics = cast.profile_path ?  `https://image.tmdb.org/t/p/w138_and_h175_face/${cast.profile_path}` : Unknown;
                 const key = cast.index + ' ' + cast.order + ' ' + cast.credit_id;
@@ -33,8 +30,6 @@ class FullCastList extends Component {
             return casts;
     };
     _renderCrewList = () => {
-        console.log(this.state.crews)
-
         const crews = this.state.crews.map((crew, index) => {
             const profile_pics = crew.profile_path ?  `https://image.tmdb.org/t/p/w138_and_h175_face/${crew.profile_path}` : Unknown;
             const key = crew.index + ' '  + crew.credit_id + ' ' + crew.id
@@ -49,7 +44,6 @@ class FullCastList extends Component {
     }
     _getCastList = async () => {
         const results = await this._callApi(this.state.id);
-        console.log(results)
             this.setState({
                 casts: results.cast,
                 crews: results.crew
@@ -69,7 +63,6 @@ class FullCastList extends Component {
             .then(json => json)
             .catch(err => console.log(err));
         }
-      
     };
 
     render() {

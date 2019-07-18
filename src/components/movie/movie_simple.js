@@ -1,10 +1,12 @@
 import React, { Component, Fragment } from 'react';
+import LoadingBar from '../base/loading_bar';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons'
 class MovieSimple extends Component{
     state = {
         id: this.props.movie_id,
-        movie: []
+        movie: ''
     }
     componentDidMount() {
         this._getMovies();
@@ -14,7 +16,7 @@ class MovieSimple extends Component{
         return (
             <div className="Movie__Simple">
                 <div className="Movie__Simple__Poster">
-                    <img src={`https://image.tmdb.org/t/p/w116_and_h174_face/${movie.poster_path}`} />
+                    <img src={`https://image.tmdb.org/t/p/w116_and_h174_face/${movie.poster_path}`} alt={movie.title}/>
                 </div>
                 <div className="Movie__Simple__Detail">
                     <p className="MovieSimple__Title">{ movie.title }</p>
@@ -39,9 +41,10 @@ class MovieSimple extends Component{
         .catch(err => console.log(err));
     }
     render() {
+        const { movie } = this.state;
         return (
             <Fragment >
-                {this._renderSimpleMovie()}
+                {movie ? this._renderSimpleMovie() : <LoadingBar  type='cylon' color='#111111' />}
             </Fragment>
         )
     }

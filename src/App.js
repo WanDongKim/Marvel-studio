@@ -10,6 +10,8 @@ import SeriesList from './components/series/seriesList';
 import Movie_Detail from './components/movie/movie_details';
 import FullCastList from './components/cast/full-cast_list';
 import Series_Detail from './components/series/series_detail';
+import SeasonList from './components/series/season/season_list';
+import EpisodeList from './components/series/episode/episode_list';
 
 
 
@@ -28,7 +30,9 @@ class App extends Component {
 
           <Route exact path="/series" component={SeriesList} />
           <Route exact path="/series/:id" component={Series_Detail} />
+          <Route exact path="/series/:id/seasons" component={SeasonList} />
           <Route exact path="/series/:id/season/:season/full-cast" component={FullCastList} />
+          <Route exact path="/series/:id/season/:season" component={EpisodeList} />
 
 
         <Footer />

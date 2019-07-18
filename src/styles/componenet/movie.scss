@@ -108,9 +108,10 @@
         width: 100%;
         .Detail__Column {
             display: inline-flex;
-
             &.left {
                 width: 75%;
+                display: block;
+
                 .Detail__Cast {
                     margin: 5rem 5rem 5rem 15rem;
                     .Detail__Title{
@@ -125,6 +126,52 @@
                                 color: inherit;
                             }
                         }
+                    }
+                }
+                .Detail__RelatedMovie{
+                    margin: 5rem 5rem 5rem 15rem;
+
+                    .Detail__Title{
+                        font-size: $l-size;
+                        font-weight: bold;
+                    }
+                    .Related__Carousel{
+                        display: flex;
+                        overflow-x: scroll;
+                        .Movie__Card {
+
+                            width: 250px;
+                            margin: 20px;
+                            display: block;
+                            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+                            .Movie__Column{
+                                position: relative;
+                            }
+                            .Movie__Poster {
+                                width: 250px;
+                                height: 171px;
+                                outline: none;
+                                border: 0;
+                            }
+                            .Movie__Title {
+                                font-size: $m-size;
+                                font-weight: bold;
+                                margin: 10px;
+                                text-align: center;        
+                            }
+                            .Movie__ReleaseDate {
+                                display: none;
+                            }
+                            .Movie__Overview{
+                                display: none;
+                            }
+                            .Movie__View-more {
+                                display: none;
+
+                            }
+                    
+                        }
+                    
                     }
                 }
             }

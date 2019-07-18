@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import CastList from '../cast/cast_list';
 import MovieFact from './movie_fact';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import RelatedMovies from './related_movie';
 
 // import LoadingBar from '../base/loading_bar';
 class Movie_Detail extends Component {
     state = {
         movie_id: this.props.match.params.id,
-        movie: []
+        movie: ''
     };
 
     componentDidMount() {
@@ -44,8 +45,10 @@ class Movie_Detail extends Component {
     render(){
         const { movie, movie_id } = this.state;
         const id = movie_id;
+        const movie_url = movie ? `url("https://image.tmdb.org/t/p/w1400_and_h450_face${movie.backdrop_path}")` : '';
+        const poster_url = movie ? `https://image.tmdb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}` : '';
         const back = {
-            backgroundImage: `url("https://image.tmdb.org/t/p/w1400_and_h450_face${movie.backdrop_path}")`,
+            backgroundImage: movie_url,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: '50% 50%',
@@ -59,7 +62,7 @@ class Movie_Detail extends Component {
                 <div className="Detail__bg-card" >
                     <div style={back}></div>
                     <div className="Detail__Column">
-                        <img className="Detail__Poster" src= {`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}`} alt={movie.title} title={movie.title}/>
+                        <img className="Detail__Poster" src= {poster_url} alt={movie.title} title={movie.title}/>
                     </div>
                     <div className="Detail__Column">
                         <div className="Detail__Info">
@@ -80,6 +83,10 @@ class Movie_Detail extends Component {
                                 <p className="Detail__Title">Top Billed Cast</p>
                                 <CastList movie_id={this.state.movie_id} />
                                 <p className="Detail__CastLink"><i><Link to={{pathname: `/movie/${id}/full-cast`, component: '../cast/full-cast_list.js'}}>View Full Cast & Crew</Link></i></p>
+                            </div>
+                            <div className="Detail__RelatedMovie">
+                                <p className="Detail__Title">Recommendations</p>
+                                <RelatedMovies id={this.state.movie_id}/>
                             </div>
                         </div> 
 

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import Movie from './movie';
+import Series from './series';
 import { Carousel } from 'react-responsive-carousel';
 import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 
-class RelatedMovies extends Component{
+class RelatedSeries extends Component{
     state = {
         id: this.props.id,
-        movies: [],
+        series_list: '',
         redirect: false
     };
     
@@ -15,29 +15,30 @@ class RelatedMovies extends Component{
         this._getMovies();
     }
     _renderMovies = () => {
-        const movies = this.state.movies.map((movie) => {
-            return <Movie
-            key={movie.id}
-            id={movie.id}
-            title={movie.title}
-            release_date={movie.release_date}
-            vote_average={movie.vote_average}
-            overview={movie.overview}
-            poster = {`https://image.tmdb.org/t/p/w250_and_h141_face/${movie.backdrop_path}`} />
+        const series_list = this.state.series_list.map((series) => {
+            return <Series
+            key={series.id}
+            id={series.id}
+            title={series.name}
+            release_date={series.release_date}
+            vote_average={series.vote_average}
+            overview={series.overview}
+            poster = {`https://image.tmdb.org/t/p/w250_and_h141_face/${series.backdrop_path}`} />
         })
-        return movies;
+        return series_list;
     }
 
     _getMovies = async () => {
         const results = await this._callApi();
         console.log(results)
         this.setState({
-            movies: results
+            series_list: results
         })
     }
     
     _callApi = () => {
-        return fetch(`https://api.themoviedb.org/3/movie/${this.state.id}/recommendations?api_key=005c2dfe9e66fb2c377f35ac409b86d7&language=en-US&page=1`)
+        return fetch(`
+        https://api.themoviedb.org/3/tv/${this.state.id}/recommendations?api_key=005c2dfe9e66fb2c377f35ac409b86d7&language=en-US&page=1`)
             .then(response => response.json())
             .then(json => json.results)
             .catch(err => console.log(err));
@@ -45,13 +46,13 @@ class RelatedMovies extends Component{
     
     
     render() {
-        const { movies } = this.state;
+        const { series_list } = this.state;
         return (
             <div className="Related__Carousel">
-            {movies? this._renderMovies() : 'loading'}
+            { series_list ? this._renderMovies() : 'loading'}
             </div>
         )
     }
 }
 
-export default RelatedMovies;
+export default RelatedSeries;

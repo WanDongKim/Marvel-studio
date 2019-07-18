@@ -50,7 +50,7 @@ class SeriesList extends Component {
     const { series_list } =this.state;
     return (
       <div className="Series-list">
-        {series_list ? this._renderSeriesList() : <LoadingBar  type='cylon' color='#111111' />}
+        {series_list.length !== 0 ? this._renderSeriesList() : <LoadingBar  type='cylon' color='#111111' />}
       </div>
     );
   }

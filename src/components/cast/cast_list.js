@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import Cast from "./cast";
 import LoadingBar from '../base/loading_bar';
+import Unknown from '../../assets/images/unknown.jpg';
 
 class CastList extends Component {
     state ={
-        casts: [],
+        casts: '',
         movie_id: this.props.movie_id,
         tv_id: this.props.tv_id,
         tv_last_season: this.props.last_seaseon
@@ -15,13 +16,15 @@ class CastList extends Component {
    
     _renderCastList = () => {
             const casts = this.state.casts.map((cast, index) => {
+                const profile_pics = cast.profile_path ?  `https://image.tmdb.org/t/p/w138_and_h175_face/${cast.profile_path}` : Unknown;
                 if(index < 10 ) {
                     return <Cast 
                         key={cast.id}
-                        profile={`https://image.tmdb.org/t/p/w138_and_h175_face/${cast.profile_path}`}
+                        profile={profile_pics}
                         character={cast.character}
                         name = {cast.name} />
                 }
+                return undefined;
             })
             return casts;
     };
@@ -36,7 +39,6 @@ class CastList extends Component {
     
 
     _callApi = () => {
-        console.log(this.state)
         if(this.state.movie_id){
             return fetch(`https://api.themoviedb.org/3/movie/${this.state.movie_id}/credits?api_key=005c2dfe9e66fb2c377f35ac409b86d7`)
             .then(response => response.json())

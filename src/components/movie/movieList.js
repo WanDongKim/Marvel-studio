@@ -49,7 +49,7 @@ class MovieList extends Component {
     const { movies } =this.state;
     return (
       <div className="Movie-list">
-        {movies ? this._renderMovies() : <LoadingBar  type='cylon' color='#111111' />}
+        {movies.length !== 0 ? this._renderMovies() : <LoadingBar  type='cylon' color='#111111' />}
       </div>
     );
   }

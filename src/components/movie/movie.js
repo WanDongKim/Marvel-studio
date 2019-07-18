@@ -2,7 +2,7 @@ import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis'
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 
 function Movie({id, title, release_date, overview, vote_average, poster}){
     return( 
@@ -21,7 +21,7 @@ function Movie({id, title, release_date, overview, vote_average, poster}){
                 trimRight
                 basedOn='letters'/>
                 <p className="Movie__View-more">
-                    <Link to= {{pathname: `/movie/${id}`, component: './movie_details.js'}}>
+                    <Link to= {{pathname: `/movie/${id}`, component: './movie_details.js' }} >
                         View more
                     </Link>
                 </p>

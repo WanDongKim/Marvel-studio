@@ -14,11 +14,11 @@ class SeriesSimple extends Component{
         return (
             <div className="Series__Simple">
                 <div className="Series__Simple__Poster">
-                    <img src={`https://image.tmdb.org/t/p/w116_and_h174_face/${movie.poster_path}`} />
+                    <img src={`https://image.tmdb.org/t/p/w116_and_h174_face/${movie.poster_path}`} alt={movie.name}/>
                 </div>
                 <div className="Series__Simple__Detail">
                     <p className="SeriesSimple__Title">{ movie.name }</p>
-                    <p className="SeriesSimple__Goback" onClick={this.props.goBack}><FontAwesomeIcon icon={faLongArrowAltLeft} />&nbsp; Back to movie</p>
+                    <p className="SeriesSimple__Goback" onClick={this.props.goBack}><FontAwesomeIcon icon={faLongArrowAltLeft} />&nbsp; Back to Series</p>
                 </div>
             </div>
         );

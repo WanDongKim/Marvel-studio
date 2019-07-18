@@ -1,0 +1,38 @@
+.Episode__Container{
+    margin: 9rem auto 0 auto;
+
+    .Episode__List{
+        max-width: 1200px;
+        margin: 5rem auto 0 auto;
+        .List__Title{
+            font-size: $l-size;
+            font-weight: bold;
+            span{
+                color: darkgrey;
+            }
+        }
+        .Episode__Card{
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            display: flex;
+            margin: 2rem 0;
+            width: 100%;
+            .Episode__Content{
+                font-size: $s-size;
+                margin:2rem;
+    
+                .Episode__Name{
+                    font-weight: bold;
+                    font-size: $m-size;
+                    .Episode__Star {
+                        background-color: black;
+                        color: white;
+                        border-radius: 10px;
+                        padding: 5px 10px;
+                        margin-left: 10px;
+                    }
+                }
+            }
+    
+        }
+    }
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import Unknown from '../../assets/images/unknown.jpg';
 
 function CastSimple({profile, character, department, name}){
     return( 
@@ -18,8 +19,9 @@ function CastSimple({profile, character, department, name}){
 }
 
 function CastImage({profile, alt}){
+    const image = profile? profile : Unknown;
     return (
-        <img src={profile} alt={alt} title={alt} className="" />
+        <img src={image} alt={alt} title={alt} className="" />
     )
 }
 

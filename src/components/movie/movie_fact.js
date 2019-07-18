@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import CurrencyFormat from 'react-currency-format';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLink } from '@fortawesome/free-solid-svg-icons'
@@ -7,7 +6,6 @@ import { faLink } from '@fortawesome/free-solid-svg-icons'
 function MovieFact({homepage, status, budget, language, revenue, runtime, vote_avg, popularity, company}){
     const format_budget = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD' }).format(budget);
     const format_revenue = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD' }).format(revenue);
-    console.log(company)
     return(
         <div className="Fact__Container">
             <p className="Fact__Title">Official Website <a href={homepage}><FontAwesomeIcon icon={faLink} /></a></p>
