@@ -13,9 +13,16 @@ class Series_Detail extends Component {
         status:''
     };
 
-    componentDidMount() {
-        this._getSeries();
-    }
+    componentWillMount() {
+        this.timerID = setTimeout(
+          () =>  this._getSeries(),
+          1500
+        );
+        
+      }
+      componentWillUnmount(){
+        clearInterval(this.timerID);
+      }
     
     _getSeries = async () => {
         const result = await this._callApi(this.state.tv_id);
@@ -96,14 +103,14 @@ class Series_Detail extends Component {
             <div className="Detail__Column left">
                 <div className="Detail__Cast">
                     <p className="Detail__Title">Top Billed Cast</p>
-                    { tv ? <CastList tv_id={this.state.tv_id} last_seaseon={tv.seasons.length-1} /> : <LoadingBar  type='cylon' color='#111111' /> }
+                    { tv ? <CastList tv_id={this.state.tv_id} last_seaseon={tv.seasons.length-1} /> : <LoadingBar  type='cylon' color='#e50b14' /> }
                     { tv ? <p className="Detail__CastLink"><i><Link to={{pathname: `/series/${id}/season/${tv.seasons.length}/full-cast`, component: '../cast/full-cast_list.js'}}>View Full Cast & Crew</Link></i></p> : <LoadingBar  type='cylon' color='#111111' /> }
                     <hr />
 
                     </div>
                 <div className="Detail__Season">
                     <p className="Detail__Title">{status}</p>
-                    { tv ? <Season season={tv.seasons[tv.seasons.length - 1]} /> : <LoadingBar  type='cylon' color='#111111' /> }
+                    { tv ? <Season season={tv.seasons[tv.seasons.length - 1]} /> : <LoadingBar  type='cylon' color='#e50b14' /> }
                     { tv ? <p className="Detail__SeasonLink"><i><Link to={{pathname: `/series/${id}/seasons`, component: './season/season_list.js'}}>View All Seasons</Link></i></p> : <LoadingBar  type='cylon' color='#111111' /> }
                     <hr />
 

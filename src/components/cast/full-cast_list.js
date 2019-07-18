@@ -13,8 +13,11 @@ class FullCastList extends Component {
         casts: '',
         crews: '',
     }
-    componentDidMount() {
-        this._getCastList();
+    componentWillMount() {
+        this.timerID = setTimeout(
+            () =>  this._getCastList(),
+            1000
+        );
     }
 
     _renderCastList = () => {
@@ -75,11 +78,11 @@ class FullCastList extends Component {
 
                     <div className="Cast__Simple__Column">
                         <p className="Simple__Title">Cast {casts.length}</p>
-                        {casts ? this._renderCastList() : <LoadingBar  type='cylon' color='#111111' />}
+                        {casts ? this._renderCastList() : <LoadingBar  type='cylon' color='#e50b14' />}
                     </div>
                     <div className="Cast__Simple__Column">
                         <p className="Simple__Title">Crew {crews.length}</p>
-                        {crews ? this._renderCrewList() : <LoadingBar  type='cylon' color='#111111' />}
+                        {crews ? this._renderCrewList() : <LoadingBar  type='cylon' color='#e50b14' />}
                     </div>
                 </div>
             </div>

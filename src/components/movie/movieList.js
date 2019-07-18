@@ -7,10 +7,16 @@ class MovieList extends Component {
     pages: [1,2,3]
   };
 
-  componentDidMount() {
-    this._getMovies();
+  componentWillMount() {
+    this.timerID = setTimeout(
+      () =>  this._getMovies(),
+      1500
+    );
+    
   }
-
+  componentWillUnmount(){
+    clearInterval(this.timerID);
+  }
   _renderMovies = () => {
     const movies = this.state.movies.map((movie) => {
       if(movie.media_type ==='movie'){
@@ -49,11 +55,10 @@ class MovieList extends Component {
     const { movies } =this.state;
     return (
       <div className="Movie-list">
-        {movies.length !== 0 ? this._renderMovies() : <LoadingBar  type='cylon' color='#111111' />}
+        {movies.length !== 0 ? this._renderMovies() : <LoadingBar type='cylon' color='#e50b14' />}
       </div>
     );
   }
 }
 
 export default MovieList;
-

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Movie from './movie';
-import { Carousel } from 'react-responsive-carousel';
-import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
+import LoadingBar from '../base/loading_bar';
+
 
 class RelatedMovies extends Component{
     state = {
@@ -12,8 +12,9 @@ class RelatedMovies extends Component{
     };
     
     componentDidMount() {
-        this._getMovies();
+        this._getMovies()
     }
+
     _renderMovies = () => {
         const movies = this.state.movies.map((movie, index) => {
             if(index <3){
@@ -51,7 +52,7 @@ class RelatedMovies extends Component{
         const { movies } = this.state;
         return (
             <div className="Related__Carousel">
-            {movies? this._renderMovies() : 'loading'}
+            {movies ? this._renderMovies() : <LoadingBar  type='cylon' color='#e50b14' />}
             </div>
         )
     }

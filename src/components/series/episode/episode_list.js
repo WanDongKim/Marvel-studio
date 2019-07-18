@@ -11,9 +11,16 @@ class EpisodeList extends Component {
         episodes: '',
         result: ''
     }
-    componentDidMount() {
-        this._getEpisdoes();
-    }
+    componentWillMount() {
+        this.timerID = setTimeout(
+          () =>  this._getEpisdoes(),
+          1500
+        );
+        
+      }
+      componentWillUnmount(){
+        clearInterval(this.timerID);
+      }
     _renderEpisodes() {
         const episodes = this.state.episodes.map((episode) => {
             return (
@@ -48,7 +55,7 @@ class EpisodeList extends Component {
                 <SeriesSimple series_id={id} goBack={() => history.goBack()} />
                 <div className = "Episode__List">
                     <p className="List__Title">Episodes <span><i>{episodes.length}</i></span></p>
-                    { result ? this._renderEpisodes() : <LoadingBar />}
+                    { result ? this._renderEpisodes() : <LoadingBar type='cylon' color='#e50b14' /> }
                 </div>
             </div>
 

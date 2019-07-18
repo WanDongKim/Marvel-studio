@@ -8,8 +8,14 @@ class MovieSimple extends Component{
         id: this.props.movie_id,
         movie: ''
     }
-    componentDidMount() {
-        this._getMovies();
+    componentWillMount() {
+        this.timerID = setTimeout(
+            () =>  this._getMovies(),
+            1000
+        );
+    }
+    componentWillUnmount(){
+        clearInterval(this.timerID);
     }
     _renderSimpleMovie = () => {
         const movie = this.state.movie;
@@ -44,7 +50,7 @@ class MovieSimple extends Component{
         const { movie } = this.state;
         return (
             <Fragment >
-                {movie ? this._renderSimpleMovie() : <LoadingBar  type='cylon' color='#111111' />}
+                {movie ? this._renderSimpleMovie() : <LoadingBar  type='cylon' color='#e50b14' />}
             </Fragment>
         )
     }

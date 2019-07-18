@@ -8,10 +8,16 @@ class SeriesList extends Component {
     pages: [1,2,3]
   };
 
-  componentDidMount() {
-    this._getSeriesList();
+  componentWillMount() {
+    this.timerID = setTimeout(
+      () =>  this._getSeriesList(),
+      1500
+    );
+    
   }
-
+  componentWillUnmount(){
+    clearInterval(this.timerID);
+  }
   _renderSeriesList = () => {
     const series_list = this.state.series_list.map((series) => {
       if(series.media_type ==='tv'){
@@ -50,7 +56,7 @@ class SeriesList extends Component {
     const { series_list } =this.state;
     return (
       <div className="Series-list">
-        {series_list.length !== 0 ? this._renderSeriesList() : <LoadingBar  type='cylon' color='#111111' />}
+        {series_list.length !== 0 ? this._renderSeriesList() : <LoadingBar  type='cylon' color='#e50b14' />}
       </div>
     );
   }

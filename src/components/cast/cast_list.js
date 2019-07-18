@@ -10,10 +10,15 @@ class CastList extends Component {
         tv_id: this.props.tv_id,
         tv_last_season: this.props.last_seaseon
     }
-    componentDidMount() {
-        this._getCastList();
+    componentWillMount() {
+        this.timerID = setTimeout(
+            () =>  this._getCastList(),
+            1000
+        );
     }
-   
+    componentWillUnmount(){
+        clearInterval(this.timerID);
+      }
     _renderCastList = () => {
             const casts = this.state.casts.map((cast, index) => {
                 const profile_pics = cast.profile_path ?  `https://image.tmdb.org/t/p/w138_and_h175_face/${cast.profile_path}` : Unknown;
@@ -58,8 +63,7 @@ class CastList extends Component {
         const { casts } = this.state;
         return (
             <div className="Cast__Top10">
-            { casts ? this._renderCastList() : <LoadingBar  type='cylon' color='#111111' />}
-
+            { casts ? this._renderCastList() : <LoadingBar  type='cylon' color='#e50b14' />}
             </div>
         )
     }
