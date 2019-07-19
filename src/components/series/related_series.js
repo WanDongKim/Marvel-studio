@@ -15,22 +15,23 @@ class RelatedSeries extends Component{
         this._getMovies();
     }
     _renderMovies = () => {
-        const series_list = this.state.series_list.map((series) => {
-            return <Series
-            key={series.id}
-            id={series.id}
-            title={series.name}
-            release_date={series.release_date}
-            vote_average={series.vote_average}
-            overview={series.overview}
-            poster = {`https://image.tmdb.org/t/p/w250_and_h141_face/${series.backdrop_path}`} />
+        const series_list = this.state.series_list.map((series, index) => {
+            if(index < 3) {
+                return <Series
+                key={series.id}
+                id={series.id}
+                title={series.name}
+                release_date={series.release_date}
+                vote_average={series.vote_average}
+                overview={series.overview}
+                poster = {`https://image.tmdb.org/t/p/w250_and_h141_face/${series.backdrop_path}`} />
+            }
         })
         return series_list;
     }
 
     _getMovies = async () => {
         const results = await this._callApi();
-        console.log(results)
         this.setState({
             series_list: results
         })

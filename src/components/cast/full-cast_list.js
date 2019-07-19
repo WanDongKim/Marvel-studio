@@ -16,7 +16,7 @@ class FullCastList extends Component {
     componentWillMount() {
         this.timerID = setTimeout(
             () =>  this._getCastList(),
-            1000
+            500
         );
     }
 

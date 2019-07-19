@@ -11,7 +11,7 @@ class MovieSimple extends Component{
     componentWillMount() {
         this.timerID = setTimeout(
             () =>  this._getMovies(),
-            1000
+            500
         );
     }
     componentWillUnmount(){

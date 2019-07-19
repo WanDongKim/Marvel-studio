@@ -9,12 +9,13 @@ class EpisodeList extends Component {
         id: this.props.match.params.id,
         season_id: this.props.match.params.season,
         episodes: '',
-        result: ''
+        result: '',
+        length: 0
     }
     componentWillMount() {
         this.timerID = setTimeout(
           () =>  this._getEpisdoes(),
-          1500
+          500
         );
         
       }
@@ -34,7 +35,8 @@ class EpisodeList extends Component {
         console.log(result);
         this.setState({
             result: result,
-            episodes: result.episodes
+            episodes: result.episodes,
+            length: result.episodes.length
         });
     }
     
@@ -47,14 +49,14 @@ class EpisodeList extends Component {
         .catch(err => console.log(err));
     }
     render() {
-        const { id, result, episodes } = this.state;
+        const { id, result, length } = this.state;
         const { history } = this.props;
         console.log(result);
         return (
             <div className="Episode__Container">
                 <SeriesSimple series_id={id} goBack={() => history.goBack()} />
                 <div className = "Episode__List">
-                    <p className="List__Title">Episodes <span><i>{episodes.length}</i></span></p>
+                    <p className="List__Title">Episodes <span><i>{length}</i></span></p>
                     { result ? this._renderEpisodes() : <LoadingBar type='cylon' color='#e50b14' /> }
                 </div>
             </div>

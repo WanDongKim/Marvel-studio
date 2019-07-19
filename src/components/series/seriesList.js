@@ -11,7 +11,7 @@ class SeriesList extends Component {
   componentWillMount() {
     this.timerID = setTimeout(
       () =>  this._getSeriesList(),
-      1500
+      500
     );
     
   }

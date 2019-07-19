@@ -27,14 +27,12 @@ class RelatedMovies extends Component{
                 overview={movie.overview}
                 poster = {`https://image.tmdb.org/t/p/w250_and_h141_face/${movie.backdrop_path}`} />
             }
-
         })
         return movies;
     }
 
     _getMovies = async () => {
         const results = await this._callApi();
-        console.log(results)
         this.setState({
             movies: results
         })

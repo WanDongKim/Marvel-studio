@@ -9,27 +9,24 @@ import RelatedSeries from './related_series';
 class Series_Detail extends Component {
     state = {
         tv_id: this.props.match.params.id,
-        tv: '',
-        status:''
+        tv: ''
     };
 
     componentWillMount() {
         this.timerID = setTimeout(
-          () =>  this._getSeries(),
-          1500
+            () =>  this._getSeries(),
+            500
         );
         
-      }
-      componentWillUnmount(){
+    }
+    componentWillUnmount(){
         clearInterval(this.timerID);
-      }
+    }
     
     _getSeries = async () => {
         const result = await this._callApi(this.state.tv_id);
-        const status = result.status==='Returning Series' ? 'Current Season' : 'Last Season';
         this.setState({
             tv: result,
-            status: status
         });
     }
     
@@ -51,7 +48,7 @@ class Series_Detail extends Component {
             return genres;
         }
     }
-     _getNetwork = () => {
+    _getNetwork = () => {
         if(!!this.state.tv.networks ){
             const networks = this.state.tv.networks.map((net,index) => {
                 const logo_path = `https://image.tmdb.org/t/p/h30/${net.logo_path}`;
@@ -104,14 +101,14 @@ class Series_Detail extends Component {
                 <div className="Detail__Cast">
                     <p className="Detail__Title">Top Billed Cast</p>
                     { tv ? <CastList tv_id={this.state.tv_id} last_seaseon={tv.seasons.length-1} /> : <LoadingBar  type='cylon' color='#e50b14' /> }
-                    { tv ? <p className="Detail__CastLink"><i><Link to={{pathname: `/series/${id}/season/${tv.seasons.length}/full-cast`, component: '../cast/full-cast_list.js'}}>View Full Cast & Crew</Link></i></p> : <LoadingBar  type='cylon' color='#111111' /> }
+                    { tv ? <p className="Detail__CastLink"><i><Link to={{pathname: `/series/${id}/season/${tv.seasons.length}/full-cast`, component: '../cast/full-cast_list.js'}}>View Full Cast & Crew</Link></i></p> : <LoadingBar  type='blank' color='#e50b14' /> }
                     <hr />
 
                     </div>
                 <div className="Detail__Season">
-                    <p className="Detail__Title">{status}</p>
+                    <p className="Detail__Title">Last Season</p>
                     { tv ? <Season season={tv.seasons[tv.seasons.length - 1]} /> : <LoadingBar  type='cylon' color='#e50b14' /> }
-                    { tv ? <p className="Detail__SeasonLink"><i><Link to={{pathname: `/series/${id}/seasons`, component: './season/season_list.js'}}>View All Seasons</Link></i></p> : <LoadingBar  type='cylon' color='#111111' /> }
+                    { tv ? <p className="Detail__SeasonLink"><i><Link to={{pathname: `/series/${id}/seasons`, component: './season/season_list.js'}}> View All Seasons</Link></i></p> : <LoadingBar  type='blank' color='#e50b14' /> }
                     <hr />
 
                 </div>

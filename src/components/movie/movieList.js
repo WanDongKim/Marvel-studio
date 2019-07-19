@@ -10,7 +10,7 @@ class MovieList extends Component {
   componentWillMount() {
     this.timerID = setTimeout(
       () =>  this._getMovies(),
-      1500
+      500
     );
     
   }
