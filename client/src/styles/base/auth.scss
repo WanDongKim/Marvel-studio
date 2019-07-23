@@ -1,0 +1,89 @@
+.Auth_Container {
+
+    width: 100%;
+    height: 100vh;
+    background-size: 100%;
+    background-repeat: repeat;
+
+    .Auth__Box{
+        width: 500px;
+        height: 600px;
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        // background-color: rgba(0, 0, 0, .8);
+        background-color: white;
+        z-index: 50;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        &.Login {
+            height: 400px;
+        }
+        .Auth__Title {
+            // color: white;
+            color: $key-red;
+            text-transform: uppercase;
+            font-size: $xl-size;
+            font-weight: bold;
+            text-align: center;
+            margin: 1rem;
+        }
+        .Auth__RegisterForm {
+            margin: 3rem 1rem;
+            height: 80%;
+            .signUpFormTextBox {
+                display: block;
+                width: 100%;
+                font-size: $m-size;
+                padding: 0.5rem 0;
+                margin: 15px 0;
+                border: none;
+                background: #e5e5e5;
+                text-indent: 5px;
+                text-transform: none;
+                line-height: 12px;
+            }
+            .loginFormTextBox {
+                display: block;
+                width: 100%;
+                font-size: $m-size;
+                padding: 0.5rem 0;
+                margin: 15px 0;
+                border: none;
+                background: #e5e5e5;
+                text-indent: 5px;
+                text-transform: none;
+                line-height: 12px;
+            }
+            .btnRegister {
+                display: block;
+                margin: 3rem auto 0 auto;
+                background-color: $key-red;
+                border: 2px solid $key-red;
+                height: 3rem;
+                width: 10rem;
+                color: white;
+                font-size: $m-size;
+                &:hover {
+                    background-color: #851922;
+                    border: 2px solid #851922;
+                }
+                &:visited {
+                    background-color: #851922;
+                    border: 2px solid #851922;
+                }
+            }
+            .message{
+                text-align: center;
+                a{
+                    color: $key-red;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+
+

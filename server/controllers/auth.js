@@ -67,7 +67,7 @@ module.exports.processRegisterPage = (req, res, next) => {
             return res.json({success: false, msg: 'ERROR: Failed to Register new user!'});
         } else {
             return passport.authenticate("local")(req, res, () => {
-                return res.json({success: true, msg: 'User registered successfully!'});
+                return res.json( {success: true, msg: 'User registered successfully!'});
             });
         }
     })
