@@ -4,7 +4,10 @@ import LoadingBar from '../base/loading_bar';
 class MovieList extends Component {
   state = {
     movies: [],
-    pages: [1,2,3]
+    pages: [1,2,3],
+    movieee: [],
+    currentPage: 1,
+    moviesPerPage: 10
   };
 
   componentWillMount() {
@@ -21,20 +24,18 @@ class MovieList extends Component {
     const movies = this.state.movies.map((movie) => {
       if(movie.media_type ==='movie'){
         return <Movie
-        key={movie.id}
-        id={movie.id}
-        title={movie.title}
-        release_date={movie.release_date}
-        vote_average={movie.vote_average}
-        overview={movie.overview}
-        poster = {`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
+          key={movie.id}
+          id={movie.id}
+          title={movie.title}
+          release_date={movie.release_date}
+          vote_average={movie.vote_average}
+          overview={movie.overview}
+          poster = {`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
       }
       return undefined;
     })
     return movies;
-
   }
-
   _getMovies = async () => {
     for(let i = 0; i<this.state.pages.length; i++){
       const results = await this._callApi(i+1);

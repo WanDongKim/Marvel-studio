@@ -1,14 +1,20 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import React, { Fragment } from 'react';
+import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import Image_logo from '../../assets/images/Marvel_Studios_2016_logo.png';
-function Header(){
-    // const pathname = window.location.pathname;
-    return  <Navbar />
+function Header({location}){
+    return  <Navbar location={location}/>
 }
-const Navbar = () => {
-    const pathname = window.location.pathname;
-    const isLoggedIn = localStorage.getItem('id_token');
-
+const Navbar = ({location}) => {
+    const isLoggedIn = sessionStorage.getItem('token');
+    const logout = () => {
+        sessionStorage.removeItem("user");
+        sessionStorage.removeItem("token");
+        window.location.reload();
+    }
+    const userStyle = {
+        color: 'red'
+    };
+    const username = sessionStorage.getItem('username')
     return (
         <nav className="header_container">
         <div className="link-wrap">
@@ -20,10 +26,24 @@ const Navbar = () => {
             <div className="page-link"><Link to='/movie'>Movies</Link></div>
             <div className="page-link"><Link to='/series'>Series</Link></div>
     
-            {isLoggedIn ? 'logout' :<div className="page-link"><Link to='/login'>Sign in</Link></div>}
+            {
+                isLoggedIn ? 
+                <Fragment>
+                <div className="page-link" style={userStyle}>
+                Hello, &nbsp;{sessionStorage.getItem('user')}
+                </div> 
+                <div className="page-link">
+                    <a onClick={logout}>Logout</a>
+                </div> 
+                </Fragment>
+
+                :
+                <div className="page-link"><Link to='/login'>Log in</Link></div>
+            }
     
         </div>
     </nav>
     )        
 }
+
 export default Header;

@@ -1,6 +1,6 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import LinesEllipsis from 'react-lines-ellipsis'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as  Route, Link } from "react-router-dom";
 
 class Season extends Component {
     state = {

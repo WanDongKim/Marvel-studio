@@ -128,6 +128,13 @@
                         }
                     }
                 }
+                .Detail__Comment{
+                    margin: 5rem 5rem 5rem 15rem;
+                    .Detail__Title{
+                        font-size: $l-size;
+                        font-weight: bold;
+                    }
+                }
                 .Detail__RelatedMovie{
                     margin: 5rem 5rem 5rem 15rem;
 

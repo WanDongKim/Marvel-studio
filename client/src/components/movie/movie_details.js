@@ -3,6 +3,7 @@ import CastList from '../cast/cast_list';
 import MovieFact from './movie_fact';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import RelatedMovies from './related_movie';
+import CommentContainer from '../review/commentContainer';
 
 // import LoadingBar from '../base/loading_bar';
 class Movie_Detail extends Component {
@@ -81,12 +82,16 @@ class Movie_Detail extends Component {
                         <div className="Detail__Column left">
                             <div className="Detail__Cast">
                                 <p className="Detail__Title">Top Billed Cast</p>
-                                <CastList movie_id={this.state.movie_id} />
+                                <CastList movie_id={movie_id} />
                                 <p className="Detail__CastLink"><i><Link to={{pathname: `/movie/${id}/full-cast`, component: '../cast/full-cast_list.js'}}>View Full Cast & Crew</Link></i></p>
+                            </div>
+                            <div className="Detail__Comment">
+                                <p className="Detail__Title">Reviews</p>
+                                <CommentContainer content_id={movie_id}/>
                             </div>
                             <div className="Detail__RelatedMovie">
                                 <p className="Detail__Title">Recommendations</p>
-                                <RelatedMovies id={this.state.movie_id}/>
+                                <RelatedMovies id={movie_id}/>
                             </div>
                         </div> 
 

@@ -27,6 +27,7 @@ class RelatedMovies extends Component{
                 overview={movie.overview}
                 poster = {`https://image.tmdb.org/t/p/w250_and_h141_face/${movie.backdrop_path}`} />
             }
+            return undefined;
         })
         return movies;
     }

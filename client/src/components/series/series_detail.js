@@ -5,6 +5,7 @@ import Season from './season/season';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import SeriesFact from './series_fact';
 import RelatedSeries from './related_series';
+import CommentContainer from '../review/commentContainer';
 
 class Series_Detail extends Component {
     state = {
@@ -112,9 +113,15 @@ class Series_Detail extends Component {
                     <hr />
 
                 </div>
+                <div className="Detail__Comment">
+                    <p className="Detail__Title">Reviews</p>
+                    <CommentContainer movie_id={tv_id}/>
+                    <hr />
+                </div>
                 <div className="Detail__RelatedSeries">
                     <p className="Detail__Title">Recommendations</p>
-                    <RelatedSeries id={this.state.tv_id}/>
+                    <RelatedSeries id={tv_id}/>
+                    <hr />
                 </div>
             </div> 
             <div className="Detail__Column right">

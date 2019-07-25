@@ -1,0 +1,104 @@
+.Comment__Container{
+    //addCommentForm.js
+    .AddCommentForm {
+        .Form__Title {
+            display: inline-block;
+            width: 78%;
+            margin: 0.5rem 0;
+            padding: 1rem;
+            font-weight: bold;
+        }
+        .Form__Rating {
+            display: inline-block;
+            width: 10%;
+            margin: 0.5rem 1rem;
+            padding: 1rem;
+        }
+        .commentFormTextArea {
+            display: block;
+            width: 90%;
+            margin: 0.5rem 0;   
+            resize: none;
+            padding: 1rem;
+        }
+        .Form__Buttons{
+            text-align: right;
+            margin-right: 2.5rem;
+
+            .btnAdd {
+                padding: 0.5rem 2rem;
+                margin-right: 5px;
+                background: none;
+                font-size: $m-size;
+                border: 1px solid $key-red;
+                border-radius: 2rem;
+                &:hover {
+                    background-color: $key-red;
+                    color: white;
+                    transition: .5s;
+                }
+            }
+            .btnClear {
+                padding: 0.5rem 2rem;
+                margin-right: 5px;
+                background: none;
+                font-size: $m-size;
+                border: 1px solid $key-red;
+                border-radius: 2rem;
+                &:hover {
+                    background-color: $key-red;
+                    color: white;
+                    transition: .5s;
+                }
+            }
+        }
+        
+    }
+
+
+    // commentList.js
+    .Comment__List {
+        //comment.js
+        margin-top: 1rem;
+        width: 100%;
+        .Comment {
+            padding: 1rem 2rem 0 2rem;
+            border-radius: 2rem;
+                &.odd {
+                    background-color: #f1f0f1;
+                }
+                .Title{
+                    margin-top: 0;
+                    font-size: $m-size;
+                    font-weight: bold;
+                    span {
+                        font-weight: lighter;
+                        font-style: italic;
+                        font-size: $s-size;
+                        color: $key-red;
+                    }
+                }
+                .Title__Username {
+                    margin-top: -10px;
+                    font-weight: lighter;
+                    font-style: italic;
+                    .btnDelete{
+                        background: none;
+                        border: none;
+                        color:$key-red;
+                    }
+                }
+                .Comment__Contents {
+                    text-indent: 10px;
+                }
+                hr {
+                    margin-bottom: 0;
+                }
+            //reply.js
+            .Comment__Reply {
+
+            }
+        }
+    }
+
+}

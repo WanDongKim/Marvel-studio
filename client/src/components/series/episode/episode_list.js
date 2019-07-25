@@ -32,7 +32,6 @@ class EpisodeList extends Component {
     }
     _getEpisdoes = async () => {
         const result = await this._callApi();
-        console.log(result);
         this.setState({
             result: result,
             episodes: result.episodes,
@@ -51,7 +50,6 @@ class EpisodeList extends Component {
     render() {
         const { id, result, length } = this.state;
         const { history } = this.props;
-        console.log(result);
         return (
             <div className="Episode__Container">
                 <SeriesSimple series_id={id} goBack={() => history.goBack()} />
