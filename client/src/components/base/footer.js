@@ -12,7 +12,6 @@ function Footer(){
 
             <div className="Link_container">
                 <div className="page-link"><Link to='/' className="firstAnchor">Home</Link></div>
-                <div className="page-link"><Link to="/about">About</Link></div>
                 <div className="page-link"><Link to='/movie'>Movies</Link></div>
                 <div className="page-link"><Link to='/series'>Series</Link></div>
             </div>

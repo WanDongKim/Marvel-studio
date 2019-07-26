@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import MainCarousel from './main_carousel';
 import MainImage from '../../assets/images/image-asset.jpeg';
 import Card from './movie_card_s';
 

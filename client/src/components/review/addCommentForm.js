@@ -16,7 +16,7 @@ const AddCommentForm = ({onSubmit, onChange}) => {
         <textarea className="commentFormTextArea" name="commentText" type="text" placeholder="Enter your review" required={true} onChange={onChange} cols="30" rows="15"/>
         <div className="Form__Buttons">
             <button type="submit" className="btnAdd" name="btnAdd">Add Review</button>
-            <button type="clear" className="btnClear" name="btnClear">Clear</button>
+            <button type="reset" className="btnClear" name="btnClear">Clear</button>
         </div>
     </form>
     )};
