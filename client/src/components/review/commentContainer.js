@@ -18,7 +18,7 @@ class CommentContainer extends Component {
     }
     _submitCommentForm = (event) => {
         event.preventDefault();
-        fetch(`http://localhost:3000/api/movie/${this.state.movie_id}/comment/add`, {
+        fetch(`https://marvel-studio.herokuapp.com/api/movie/${this.state.movie_id}/comment/add`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

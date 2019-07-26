@@ -30,7 +30,7 @@ class Comment extends Component {
         }
     }
     _deleteComment = (event) => {
-        fetch(`http://localhost:3000/api/movie/${this.props.movie_id}/comment/delete/${this.props.id}`)
+        fetch(`https://marvel-studio.herokuapp.com/api/movie/${this.props.movie_id}/comment/delete/${this.props.id}`)
         .then(res => {
             window.location.reload();
         })

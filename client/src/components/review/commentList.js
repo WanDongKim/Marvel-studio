@@ -32,7 +32,7 @@ class CommentList extends Component {
         });
     }
     _callApi = () => {
-        return fetch(`http://localhost:3000/api/movie/${this.state.content_id}/comment`)
+        return fetch(`https://marvel-studio.herokuapp.com/api/movie/${this.state.content_id}/comment`)
         .then(response => response.json())
         .then(json => json.comments)
         .catch(err => console.log(err));

@@ -21,7 +21,7 @@ class Register extends Component {
         if(this.state.password !== this.state.confirmPassword){
             alert('Passwords do not match');
         }else{
-            fetch('http://localhost:3000/api/auth/register', {
+            fetch('https://marvel-studio.herokuapp.com/api/auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
