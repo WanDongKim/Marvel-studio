@@ -1,5 +1,8 @@
 .Comment__Container{
     //addCommentForm.js
+    i {
+        color:$key-red;
+    }
     .AddCommentForm {
         .Form__Title {
             display: inline-block;
@@ -43,11 +46,14 @@
                 margin-right: 5px;
                 background: none;
                 font-size: $m-size;
-                border: 1px solid $key-red;
                 border-radius: 2rem;
+                border: 1px solid $key-red;
+
+                background-color: $key-red;
+                color: white;
                 &:hover {
-                    background-color: $key-red;
-                    color: white;
+                    background: none;
+                    color: black;
                     transition: .5s;
                 }
             }
@@ -61,6 +67,7 @@
         //comment.js
         margin-top: 1rem;
         width: 100%;
+
         .Comment {
             padding: 1rem 2rem 0 2rem;
             border-radius: 2rem;

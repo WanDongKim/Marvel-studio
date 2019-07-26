@@ -76,7 +76,6 @@ class Series_Detail extends Component {
             height: '100%',
             zIndex: '-1'
         };
-        console.log(tv);
         return(
         <div className="Series__Details">
             <div className="Detail__bg-card" >
@@ -108,7 +107,7 @@ class Series_Detail extends Component {
                     </div>
                 <div className="Detail__Season">
                     <p className="Detail__Title">Last Season</p>
-                    { tv ? <Season season={tv.seasons[tv.seasons.length - 1]} /> : <LoadingBar  type='cylon' color='#e50b14' /> }
+                    { tv ? <Season season={tv.seasons[tv.seasons.length - 1]} id={id}/> : <LoadingBar  type='cylon' color='#e50b14' /> }
                     { tv ? <p className="Detail__SeasonLink"><i><Link to={{pathname: `/series/${id}/seasons`, component: './season/season_list.js'}}> View All Seasons</Link></i></p> : <LoadingBar  type='blank' color='#e50b14' /> }
                     <hr />
 

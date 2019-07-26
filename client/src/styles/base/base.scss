@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
 html {
     scroll-behavior: smooth;
+    height: 100%;
 }
 
 body {
@@ -8,11 +9,13 @@ body {
     margin: 0;
     width: 100%;
     padding: 0;
+    position: relative;
+    min-height: 100%;
 }
 .app {
     position: relative;
     font-family: 'Roboto Condensed', sans-serif;
-
+    height: 100%;
 }
 
 .Loading__Bar{

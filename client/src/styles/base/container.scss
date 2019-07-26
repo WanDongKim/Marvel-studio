@@ -1,6 +1,6 @@
 .header_container {
     display: inline-block;
-    position: fixed;
+    position: relative;
     height: 150px;
     width: 100%;
     background: #1B242F;
@@ -41,7 +41,36 @@
 .footer_container {
     background-color: #1B242F;
     color: white;
-    position: relative;
-    padding: 70px 0 50px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     text-align: center;
+    .first-row {
+        display: flex;
+        .footer__logo {
+            width: 15%;
+            margin: 0 0 0 auto;
+        }
+        .Link_container {
+            margin: auto auto auto 0;
+            .page-link {
+                margin: 1rem;
+                a{
+                    color:white;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+ 
+    .text_container {
+        margin: 0 auto;
+        p {
+            margin-bottom: 0;
+        }
+        span {
+            color: $key-red;
+        }
+    }
+
 }

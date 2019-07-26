@@ -57,7 +57,9 @@ class Login extends Component {
         };
         return (
             <div className="Auth_Container" style={authStyle}>
-
+            <div>
+            
+            </div>
             <div className="Auth__Box Login">
                 <p className="Auth__Title">Start Here</p>
 

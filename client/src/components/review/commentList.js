@@ -39,9 +39,10 @@ class CommentList extends Component {
     }
 
     render() {
+        console.log(this.state.comments.length)
         return(
             <div className="Comment__List">
-                {this.state.comments ? this._renderComments() : 'loading'}
+                {this.state.comments.length !== 0 ? this._renderComments() : <i>Add the first review here!</i>}
             </div>
         )
     }

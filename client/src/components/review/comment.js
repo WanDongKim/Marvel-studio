@@ -40,7 +40,6 @@ class Comment extends Component {
     render() {
         const { title, text, rating, username, createTime, index } =this.props
         const className = index % 2 === 0 ? 'Comment even' : 'Comment odd';
-        console.log(this._isSameUser())
         return(
             <div className={className}>
                 <p className="Title">{title} <span>{rating} / 10</span></p>

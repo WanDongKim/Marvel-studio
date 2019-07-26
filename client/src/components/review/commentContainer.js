@@ -61,7 +61,7 @@ class CommentContainer extends Component {
     render() {
         return(
             <div className="Comment__Container">
-                { this.state.loggedIn ? <AddCommentForm onSubmit={this._submitCommentForm} onChange={this._handleChange}/> : 'Log in to start review' }
+                { this.state.loggedIn ? <AddCommentForm onSubmit={this._submitCommentForm} onChange={this._handleChange}/> : <i>Log in to start review</i> }
 
                 <CommentList movie_id={this.state.movie_id} />
             </div>

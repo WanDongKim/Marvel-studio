@@ -22,7 +22,7 @@ const Navbar = ({location}) => {
                 <Link to='/' className="firstAnchor"><img src={Image_logo} /></Link>
             </div>
             <div className="page-link"><Link to='/' className="firstAnchor">Home</Link></div>
-            <div className="page-link"><a href="#about">About</a></div>
+            <div className="page-link"><Link to="/about">About</Link></div>
             <div className="page-link"><Link to='/movie'>Movies</Link></div>
             <div className="page-link"><Link to='/series'>Series</Link></div>
     

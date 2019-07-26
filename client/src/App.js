@@ -14,6 +14,7 @@ import SeasonList from './components/series/season/season_list';
 import EpisodeList from './components/series/episode/episode_list';
 import Login from './components/auth/login';
 import Register from './components/auth/register';
+import About from './components/about/about';
 
 const App = () => {
   return <Router>
@@ -40,7 +41,8 @@ const DefaultContainer = () => (
   <div className="App">
     <Header />
     
-    <Route exact path="/" component={Home} />      
+    <Route exact path="/" component={Home} />
+    <Route exact path="/about" component={About} />      
     <Route exact path="/login" component={Login}  />
     <Route exact path="/register" component={Register} />
 
