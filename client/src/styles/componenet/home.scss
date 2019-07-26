@@ -1,3 +1,77 @@
 .home_container {
-    margin: 10rem 0;
+    margin: 0 auto;
+    padding-bottom: 290px;
+    .masthead {
+        background-color: black;
+        height: 560px;
+        display: flex;
+        
+        .masthead_content {
+            width: 50%;
+            color: white;
+            font-size: $m-size;
+            margin: auto;
+            text-align: center;
+            .content_title {
+                font-size: $l-size;
+                font-weight: bold;
+            }
+            .content_button {
+                border: 1px solid red;
+                padding: 1rem 2rem;
+                background-color: red;
+                margin: 1rem 2rem;
+                border-radius: 0 20px;
+                display: inline-block;
+                text-decoration: none;
+
+                &:visited {
+                        color: white;
+                        text-decoration: none;
+                }
+            }
+            span {
+                color: $key-red;
+                font-size: $l-size;
+            }
+        }
+        .masthead_image {
+            width: 50%;
+            height: 560px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+
+        }
+    }
+    .Upcomings {
+        width: 100%;
+        .Title{
+            font-size: $l-size;
+            font-weight: bold;
+            margin: 2rem;
+        }
+        .coming_movies {
+            text-align: center;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+        }
+        .coming_series {
+            text-align: center;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+        }
+        .Card {
+            display: inline-block;
+            margin: 1rem;
+            .Card_Image {
+                height: 154px;
+            }
+            .Card_Title {
+                margin: 5px 0 0 0;
+                font-weight: bold;
+            }
+        }
+    }
+
 }
