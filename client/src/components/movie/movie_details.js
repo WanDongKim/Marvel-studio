@@ -87,7 +87,7 @@ class Movie_Detail extends Component {
                             </div>
                             <div className="Detail__Comment">
                                 <p className="Detail__Title">Reviews</p>
-                                <CommentContainer content_id={movie_id}/>
+                                <CommentContainer movie_id={movie_id}/>
                             </div>
                             <div className="Detail__RelatedMovie">
                                 <p className="Detail__Title">Recommendations</p>
